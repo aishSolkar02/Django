@@ -5,5 +5,15 @@ product
 {% endblock %}
 
 {% block content %}
-<h1> Product Details </h1>
+<!-- <li>{{products}}</li>  -->
+ <h3>Products:</h3>
+ <div class="row row-cols-1 row-cols-md-2 g-4">
+{% for product in products%}
+{% with username="Gargi"%}
+{% include 'card.html' with p=product only %}
+{% endwith %}
+
+
+{% endfor %}
+</div>
 {% endblock %}

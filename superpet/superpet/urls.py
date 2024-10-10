@@ -21,6 +21,11 @@ from.import views
 from products import urls
 #adding urls.py from products application
 
+#static Import
+from django.conf.urls.static import static
+from . import settings
+
+
 #. means same package
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,3 +37,6 @@ urlpatterns = [
     path('products/',include('products.urls'))
 
 ]
+
+
+urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
