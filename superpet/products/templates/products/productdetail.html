@@ -1,0 +1,8 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<div class="row row-cols-1 row-cols-md-1 g-4">
+    <!-- <p>{{product}}</p> -->
+    {% include 'card.html' with p=product %}
+</div>
+{% endblock %}

@@ -1,5 +1,6 @@
 
 <div class="col">
+  <a href="{% url 'product-detail' p.id %}">
     <div class="card">
       <img src="{{p.product_image.url}}" class="card-img-top" alt="...">
       <div class="card-body">
@@ -10,4 +11,5 @@
         <p>{{username}}</p>
       </div>
     </div>
+  </a>
   </div>
