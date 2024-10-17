@@ -1,0 +1,13 @@
+{% extends 'base.html'%}
+
+{% block content %}
+      <p style="color: red;"> Do you want to delete product..?</p>
+      
+      
+      <br>
+      <form method="post">
+        {% csrf_token %}
+        <input type="submit" value="yes">
+      </form>
+      {% include 'card.html' with p=product %}
+{% endblock %}
