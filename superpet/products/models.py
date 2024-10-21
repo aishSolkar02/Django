@@ -1,4 +1,6 @@
 from django.db import models
+from autoslug import AutoSlugField
+
 
 #Create Manager
 
@@ -29,9 +31,11 @@ class Product(models.Model):
     def __str__(self):
         return self.product_name   
 
+# #categary
+class Category(models.Model):
+    category_name=models.CharField(max_length=100,null=False)
+    category_slug=AutoSlugField(populate_from="category_name",unique=True)
 
-class Categary(models.Model):
-    pass
-    #categary_type=models.CharField(max_length=100)
-    #categary_discription=models.TextField(default="category discription")
+    def __str__(self):
+        return self.category_name 
 

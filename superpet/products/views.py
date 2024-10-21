@@ -45,3 +45,5 @@ class ProducDeleteView(DeleteView):
     success_url="/prodcuts"
 
 
+
+
