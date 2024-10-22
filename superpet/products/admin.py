@@ -8,7 +8,7 @@ from .models import Product,Category
 
 class ProductAdmin(admin.ModelAdmin):
     # model=Product
-    list_display=['id','product_name','product_price','product_image','product_brand']
+    list_display=['id','product_name','product_price','product_image','product_brand','category']
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display=['id','category_name','category_slug']
