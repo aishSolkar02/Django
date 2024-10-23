@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render,HttpResponseRedirect
+from django.contrib.auth.forms import UserCreationForm
 
 def home(request):
     return render(request,"index.html")
@@ -12,5 +13,16 @@ def about(request):
 def login(request):
     return render(request,"login.html")
 
+#=========================Register Page ==========================
+
 def register(request):
-    return render(request,"register.html")
+    if request.method=="GET":
+        form=UserCreationForm()
+        return render(request,"register.html",{"form":form})
+    else:
+        submited_form=UserCreationForm(request.POST)
+        if submited_form.is_valid():
+            submited_form.save()
+            return HttpResponseRedirect("/login")
+
+

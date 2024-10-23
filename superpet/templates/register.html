@@ -3,5 +3,9 @@
 Register
 {% endblock %}
 {% block content %}
-<h1>Register </h1>
+<form method="post">
+    {%csrf_token%}
+    {{form}}
+    <input class="btn btn-primary" type="submit" value="Register">
+</form>
 {% endblock %}
