@@ -34,10 +34,10 @@
         SuperPet
       </a>
       <form class="d-flex w-25" action="{% url 'search' %}">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"  name="keyword">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="keyword">
         <button class="btn btn-warning" type="submit">Search</button>
       </form>
-    
+
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -50,10 +50,20 @@
 
         </ul>
 
-        
 
-        <a class="btn btn-warning mx-2" href="{% url 'login'%}" role="button">Login</a>
-        <a class="btn" href="#" role="button" id="button">Logout</a>
+        
+          {% if request.user.first_name %}
+          <a class=" btn btn-warning mx-2" href="{% url 'register' %}" role="button">Register</a>
+          <a class="btn btn-warning mx-2" href="{% url 'login' %}" role="button">Login</a>
+                            
+          {% else %}
+          <a class="btn btn-warning mx-2" href="{% url 'login' %}" role="button">Login</a>
+          <a class="btn" href="#" role="button" id="button">Logout</a>
+          
+            {% endif %}
+
+
+            
 
 
       </div>
@@ -74,7 +84,7 @@
 
         <img src="{% static 'img/Untitled-20-off.png'%}" alt="" width="100%" height="100%">
 
-        
+
       </div>
 
       <!-- ------------------------------------------------------------------------------------ -->
@@ -90,25 +100,25 @@
       <div class="row row-cols-1 row-cols-md-2 g-4 m-4">
         <div class="col">
           <a href=" {% url 'royalCanin' %}">
-          <div class="card text-dark bg-warning">
-            <img src="{%static 'img/royal-canin.jpg'%}" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Royal Canin</h5>
-              
+            <div class="card text-dark bg-warning">
+              <img src="{%static 'img/royal-canin.jpg'%}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Royal Canin</h5>
+
+              </div>
             </div>
-          </div>
-        </a>
+          </a>
         </div>
         <div class="col">
           <a href="{% url 'drool' %}">
-          <div class="card text-dark bg-warning">
-            <img src="{%static 'img/drools.jpg'%}" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Drools</h5>
+            <div class="card text-dark bg-warning">
+              <img src="{%static 'img/drools.jpg'%}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Drools</h5>
 
+              </div>
             </div>
-          </div>
-        </a>
+          </a>
         </div>
 
 
@@ -132,8 +142,8 @@
 
       <div class="col">
         <div class="card p-2">
-         <a href="{% url 'category-detail' slug='dog-food'%}">
-          <img src="{%static 'img/dog-food.jpg'%}" class="card-img-top" alt="..."></a>
+          <a href="{% url 'category-detail' slug='dog-food'%}">
+            <img src="{%static 'img/dog-food.jpg'%}" class="card-img-top" alt="..."></a>
           <div class="card-body">
             <h5 class="card-title bg-warning p-3">Dog Food</h5>
           </div>
@@ -142,14 +152,14 @@
         </div>
       </div>
 
-      
+
       <!-- cat food -->
 
       <div class="col">
 
         <div class="card p-2">
           <a href="{% url 'category-detail' slug='cat-food'%}">
-          <img src="{%static 'img/cat-food.jpg'%}" class="card-img-top" alt="..."></a>
+            <img src="{%static 'img/cat-food.jpg'%}" class="card-img-top" alt="..."></a>
           <div class="card-body">
             <h5 class="card-title bg-warning p-3">Cat Food</h5>
           </div>
@@ -163,7 +173,7 @@
       <div class="col">
         <div class="card p-2">
           <a href="{% url 'category-detail' slug='grooming'%}">
-          <img src="{%static 'img/grroming.jpg'%}" class="card-img-top" alt="..."></a>
+            <img src="{%static 'img/grroming.jpg'%}" class="card-img-top" alt="..."></a>
           <div class="card-body">
             <h5 class="card-title bg-warning p-3">Grooming</h5>
           </div>
@@ -178,10 +188,10 @@
       <div class="col">
         <div class="card p-2">
           <a href="{% url 'category-detail' slug='healthcare'%}">
-          <img src="{%static 'img/health-care.jpg'%}" class="card-img-top" alt="..."></a>
+            <img src="{%static 'img/health-care.jpg'%}" class="card-img-top" alt="..."></a>
           <div class="card-body">
             <h5 class="card-title bg-warning p-3">HealthCare</h5>
-            
+
           </div>
 
 
@@ -193,12 +203,12 @@
       <div class="col">
         <div class="card p-2">
           <a href="{% url 'category-detail' slug='pet-toys'%}">
-          <img src="{%static 'img/pet-toys.jpg'%}" class="card-img-top" alt="..."></a>
+            <img src="{%static 'img/pet-toys.jpg'%}" class="card-img-top" alt="..."></a>
           <div class="card-body">
             <h5 class="card-title bg-warning p-3">Pet Toys</h5>
 
           </div>
-          
+
 
         </div>
       </div>
@@ -219,9 +229,10 @@
 
     <div class="footer-left">
       <a class="navbar-brand" href="#">
-        <img src="{% static 'img/pet-logo.png'%}" alt="" width="60" height="60" class="d-inline-block align-text-top ms-5">
+        <img src="{% static 'img/pet-logo.png'%}" alt="" width="60" height="60"
+          class="d-inline-block align-text-top ms-5">
       </a>
-      
+
       <h3>Super<span>Pet</span></h3>
 
       <p class="footer-links">

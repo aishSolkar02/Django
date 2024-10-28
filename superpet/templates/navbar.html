@@ -11,9 +11,9 @@
             SuperPet
         </a>
         <form class="d-flex w-25" action="{% url 'search' %}">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"  name="keyword">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="keyword">
             <button class="btn btn-warning" type="submit">Search</button>
-          </form>
+        </form>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -27,9 +27,14 @@
             </ul>
 
 
-
-            <a class="btn btn-warning mx-2" href="#" role="button">Login</a>
+            {% if request.user.first_name %}
+            <a class="btn btn-warning mx-2" href="{% url 'login' %}" role="button">{{request.user.first_name}}</a>
             <a class="btn" href="#" role="button" id="button">Logout</a>
+            {% else %}
+            <a class=" btn btn-warning mx-2" href="{% url 'register' %}" role="button">Register</a>
+            <a class="btn btn-warning mx-2" href="{% url 'login' %}" role="button">Login</a>
+
+            {% endif %}
 
 
         </div>
