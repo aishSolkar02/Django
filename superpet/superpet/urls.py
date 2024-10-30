@@ -18,12 +18,18 @@ from django.contrib import admin
 from django.urls import path,include
 from.import views
 #. means same package
+
+# ==============import url from product application================
 from products import urls
 #adding urls.py from products application
 
-#static Import
+#===================static Import=====================
 from django.conf.urls.static import static
+# ==================import settings=================
 from . import settings
+
+# =====================import url from cart application=================
+from cart import urls
 
 
 #. means same package
@@ -35,7 +41,8 @@ urlpatterns = [
     path('login/',views.user_login,name="login"),
     path('register/',views.register,name="register"),
     path('logout/',views.user_logout,name="logout"),
-    path('products/',include('products.urls'))
+    path('products/',include('products.urls')),
+    path('cart/',include('cart.urls'))
 
 ]
 
