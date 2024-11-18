@@ -61,7 +61,7 @@
 
             {% else %}
             <a class="btn btn-warning mx-2" href="{% url 'login' %}" role="button">Login</a>
-            <a class="btn" href="#" role="button" id="button">Logout</a>
+            <a class="btn" href="{% url 'logout' %}" role="button" id="button">Logout</a>
 
             {% endif %}
 
@@ -80,7 +80,7 @@
   <!-- Navbar End -->
   <!-- ------------------------------------------------------------------------------------ -->
   <section class="container-fluid">
-
+<h1>Name:{{name}}</h1>
     <!-- ------------------------------------------------------------------------------------ -->
     <!--Poster Image start -->
     <!-- ------------------------------------------------------------------------------------ -->

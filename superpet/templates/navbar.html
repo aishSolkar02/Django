@@ -30,7 +30,7 @@
 
             {% if request.user.first_name %}
             <a class="btn btn-warning mx-2" href="{% url 'login' %}" role="button">{{request.user.first_name}}</a>
-            <a class="btn" href="#" role="button" id="button">Logout</a>
+            <a class="btn" href="{% url 'logout' %}" role="button" id="button">Logout</a>
             {% else %}
             <a class=" btn btn-warning mx-2" href="{% url 'register' %}" role="button">Register</a>
             <a class="btn btn-warning mx-2" href="{% url 'login' %}" role="button">Login</a>

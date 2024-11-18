@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from .forms import CustomUserCreationForm
 from django.contrib.auth import authenticate,login,logout
 from products.models import Product
+from django.contrib.admin.views.decorators import user_passes_test
 
 def home(request):
     return render(request,"index.html")
@@ -51,6 +52,7 @@ def register(request):
 
 
 #==========================================================
-
+@user_passes_test(lambda u:u.is_superuser,login_url="/login")
 def admin(reuqest):
-    return render(reuqest,"admin.html",{"products":Product.customManager.all()})
+    count=Product.customManager.count()
+    return render(reuqest,"admin.html",{"products":Product.customManager.all(),"count":count})
