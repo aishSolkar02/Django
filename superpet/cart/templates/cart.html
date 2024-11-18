@@ -24,13 +24,13 @@
             <input class="btn btn-primary" type="submit" value="update cart">
             </form>
             <a class="btn btn-danger" href="{% url 'delete-cartitem' cartitem.id %}" role="button">Delete</a>
-          
+         
         </div>
       </div>
     </div>
   </div>
    {% endfor %}
-
+ 
    <table class="table" class="col-float-end" >
     <thead class="table-dark">
      <tr>
@@ -57,6 +57,8 @@
     
 
   </table>
+  <a class="btn btn-primary" href="{% url 'check-out' %}" role="button">Checkout</a><br>
+  
 <!-- {% for cartitem in cartitems%}
   
     <li>{{cartitem.quantity}}</li>

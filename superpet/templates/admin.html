@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<table class="table" class="col-float-end" >
+    <thead class="table-white">
+     <tr>
+     <th>Product Id</th>
+     <th>Product Name</th>
+     <th>Product Price</th>
+     <th>Action</th>
+     <th>Action</th>
+    </tr>
+    </thead>
+
+    <tbody>
+        {% for product in products %}
+    <tr>
+      <td>{{product.id}}</td>
+      <td>{{product.product_name}}</td>
+      <td>{{product.product_price}}</td>
+      <td><a class="btn btn-success" href="#" role="button">Update</a></td>
+      <td><a class="btn btn-danger" href="#" role="button">Delete</a></td>
+    </tr>
+   {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

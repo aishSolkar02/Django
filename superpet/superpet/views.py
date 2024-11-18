@@ -2,6 +2,7 @@ from django.shortcuts import render,HttpResponseRedirect
 from django.contrib.auth.forms import UserCreationForm
 from .forms import CustomUserCreationForm
 from django.contrib.auth import authenticate,login,logout
+from products.models import Product
 
 def home(request):
     return render(request,"index.html")
@@ -51,3 +52,5 @@ def register(request):
 
 #==========================================================
 
+def admin(reuqest):
+    return render(reuqest,"admin.html",{"products":Product.customManager.all()})

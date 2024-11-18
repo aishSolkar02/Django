@@ -26,5 +26,11 @@ class Order(models.Model):
     paid=models.BooleanField(default=False)
 
     def __str__(self):
-        return f"{self.user.first_name}  {self.order_id}  {self.created_at}"
+        return f"{self.user.first_name}  ||  {self.created_at}"
+    
+
+class OrderItem(models.Model):
+    order=models.ForeignKey(Order,on_delete=models.CASCADE)
+    quantity=models.IntegerField(default=0)
+    products=models.ForeignKey(Product,on_delete=models.PROTECT)
 
