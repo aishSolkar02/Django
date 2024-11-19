@@ -2,6 +2,19 @@
 
 {% block content %}
 
+<h3 class="bg-dark text-white p-2 m-2 text-center">Related Category</h3>
+<div class="container w-50 m-3">
+  <div class="list-group">
+  {% for category in categories %}
+  <a href="{% url 'category-detail' category.category_slug %}" class="list-group-item list-group-item-action bg-dark text-white  border-white">{{category.category_name}}</a>
+  {% endfor %}
+</div>
+
+</div>
+
+
+<!-- --------------------------------------------------------------------------------------------- -->
+
 <!-- <p>{{category_obj}}</p> -->
 <div class="row row-cols-1 row-cols-md-2 g-4">
      {% for product in category_obj.product_set.all%}
@@ -10,4 +23,5 @@
 
       {% endfor%}
     </div>
+    
 {% endblock%}

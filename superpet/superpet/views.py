@@ -56,3 +56,6 @@ def register(request):
 def admin(reuqest):
     count=Product.customManager.count()
     return render(reuqest,"admin.html",{"products":Product.customManager.all(),"count":count})
+
+def profile(request):
+    return render (request,"profile.html")

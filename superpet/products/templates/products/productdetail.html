@@ -1,8 +1,25 @@
 {% extends 'base.html'%}
 
 {% block content %}
-<div class="row row-cols-1 row-cols-md-1 g-4">
+<div class="container">
     <!-- <p>{{product}}</p> -->
     {% include 'card.html' with p=product %}
 </div>
+<h3 class="bg-dark text-white p-5 m-4 text-center">Related Product</h3>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            {% for p in products %}
+                    <div class="col">
+              <div class="card">
+                <a href="{% url 'product-detail' p.id %}"><img src="{{p.product_image.url}}" class="card-img-top" alt="..."></a>
+                <div class="card-body">
+                  <h5 class="card-title">{{p.product_name}}</h5>
+                  <p class="card-text">{{p.category.category_name}}</p>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+          
+   
+
 {% endblock %}
