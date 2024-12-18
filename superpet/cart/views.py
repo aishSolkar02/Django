@@ -126,4 +126,5 @@ def paymentSuccess(request,orderId):
 
 
     
-
+def email(request):
+    return render(request,"email.html")

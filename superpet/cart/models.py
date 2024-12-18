@@ -19,7 +19,7 @@ class Order(models.Model):
     address_line2=models.CharField(null=False,max_length=100)
     city=models.CharField(null=False,max_length=100)
     state=models.CharField(null=False,max_length=100)
-    pincode=models.IntegerField(null=False,max_length=100)
+    pincode=models.IntegerField(null=False)
     phone_no=models.BigIntegerField(null=False)
     created_at=models.DateTimeField(auto_now_add=True,null=True) #self recorded at the time of creation
     updated_at=models.DateTimeField(auto_now=True,null=True)

@@ -2,4 +2,30 @@
 
 {% block content %}
 <h1> <pre>Hello {{request.user.first_name.capitalize}}...!</pre></h1>
+{% if message %}
+<div class="alert alert-success" role="alert">
+    {{message}}
+  </div>
+  {% endif %}
+<form method="post">
+    {%csrf_token%}
+    {%for field in form %}
+    <div class="mb-3">
+        {{field.label_tag}}
+        {{field}}
+        <!------------ error part start----------------->
+        {%if field.errors %}
+        <div class="col-auto">
+            <span id="passwordHelpInline" class="form-text text-danger">
+                {{field.errors}}
+            </span>
+        </div>
+        {%endif%}
+<!------------ error part end ----------------->
+        <div id="emailHelp" class="form-text">{{field.help_text}}</div>
+    </div>
+    {% endfor %}
+    <input class="btn btn-primary" type="submit" value="Update">
+</form>
+</div>
 {% endblock %}

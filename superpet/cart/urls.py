@@ -7,6 +7,7 @@ urlpatterns = [
     path('delete-cartitem/<int:cartitemId>',views.delete_cartitem,name="delete-cartitem"),
     path('check-out',views.check_out,name="check-out"),
     path('payment/<str:orderId>/',views.payment,name="payment"),
-    path('success/<str:orderId>/',views.paymentSuccess,name="success")
+    path('success/<str:orderId>/',views.paymentSuccess,name="success"),
+    path('email/',views.email,name="email")
 
 ]
